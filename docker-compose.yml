@@ -1,0 +1,15 @@
+services:
+  misis-sport:
+    container_name: misis-sport
+    build: ./
+    restart: always
+    env_file:
+      - path: ./.env
+        required: false
+      - path: ./.env.development.local
+        required: false
+    environment:
+      - PORT=8000
+    #volumes:
+      #- ./data:/usr/src/app/tgbot:rw
+      #- ./media:/usr/src/app/media:rw
