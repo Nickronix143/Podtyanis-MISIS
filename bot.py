@@ -77,6 +77,7 @@ def get_nutrition_plan(weight, goal, gender):
 
 @bot.message_handler(commands=['start'])
 def start_message(message):
+    print(f"Пользователь {message.chat.id} запустил бота")
     markup = types.InlineKeyboardMarkup()
     male_button = types.InlineKeyboardButton("Мужчина", callback_data='male')
     female_button = types.InlineKeyboardButton("Женщина", callback_data='female')
@@ -151,7 +152,7 @@ def show_imt_recommendations(message):
     elif 25 <= imt < 29.9:
         recommendation = "Избыточная масса тела."
     else:
-        recommendation = "Ожирение."
+        recommendation = "Высокий избыток массы тела."
 
     markup = types.InlineKeyboardMarkup()
     set_button = types.InlineKeyboardButton("Набор", callback_data='weight_set')
